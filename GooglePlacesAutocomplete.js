@@ -483,6 +483,8 @@ export default class GooglePlacesAutocomplete extends Component {
 
               this.setState({
                 dataSource: this.buildRowsFromResults(results),
+              }, () => {
+                this.triggerFocus();
               });
             }
           }
@@ -877,7 +879,6 @@ export default class GooglePlacesAutocomplete extends Component {
                     }
                   : this._onFocus
               }
-              onBlur={this._onBlur}
               underlineColorAndroid={this.props.underlineColorAndroid}
               clearButtonMode={
                 clearButtonMode ? clearButtonMode : 'while-editing'
